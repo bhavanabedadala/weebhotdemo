@@ -28,10 +28,16 @@ if($method == 'POST'){
 	}
 
 	$response = new \stdClass();
-	$response->speech = $speech;
-	$response->displayText = $speech;
-	$response->source = "webhook";
-	echo json_encode($response);
+	//$response->speech = $text;
+	$response->payload->google->expectUserResponse->richResponse->items[0]->simpleResponse->textToSpeech = $text;
+	//$response->source = "webhook";
+	echo json_encode($response)
+		
+// 	$response = new \stdClass();
+// 	$response->speech = $speech;
+// 	$response->displayText = $speech;
+// 	$response->source = "webhook";
+// 	echo json_encode($response);
 }
 else
 {
